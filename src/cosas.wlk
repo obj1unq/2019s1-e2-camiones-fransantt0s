@@ -10,3 +10,19 @@ object bumblebee {
 	method nivelPeligrosidad() { return if (transformadoEnAuto) { 15 } else { 30 }  }
 	method transformar() { transformadoEnAuto = not transformadoEnAuto }
 }
+
+object paqueteDeLadrillos{
+	var pesoLadrillo=2
+	var cantLadrillos= 
+	method ponerRefuerzo(){
+		if(cantLadrillos>)
+	}
+	
+	
+}
+object refuerzo{
+	method peso(){
+		return 10  
+	}
+	
+}
