@@ -1,0 +1,32 @@
+import cosas.*
+import camion.*
+test "la bateria Tiene misiles"{
+	bateriaAntiaerea.cargarMisiles()
+	assert.that(bateriaAntiaerea.tieneMisiles())
+}
+
+test "bumblebee transformado en robot"{
+	bumblebee.transformar()
+	assert.notThat(bumblebee.transformadoEnAuto())
+}
+
+test " el paquete de ladrillos pesa 18kg"{
+	paqueteDeLadrillos.cantLadrillos(9)
+	assert.equals(paqueteDeLadrillos.peso(),18)
+}
+
+test"el peso del embalaje de seguridad es 40"{
+	embalajeDeSeguridad.cambiarCosa(arenaGranel)
+	arenaGranel.peso(40)
+	assert.equals(embalajeDeSeguridad.peso(),40)
+}
+
+
+
+
+test "nivel de peligrosidad del contenedor portuario"{
+	contenedorPortuario.agregarUnaCosaAlContenedor(bumblebee)
+	bateriaAntiaerea.cargarMisiles()
+	contenedorPortuario.agregarUnaCosaAlContenedor(bateriaAntiaerea)
+	assert.equals(contenedorPortuario.nivelPeligrosidad(),100)
+}

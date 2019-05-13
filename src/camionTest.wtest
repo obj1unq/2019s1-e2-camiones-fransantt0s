@@ -1,0 +1,43 @@
+import camion.*
+import cosas.*
+
+test " producir cambios en la carga"{
+	camion.cargar(bumblebee)
+	camion.cargar(bateriaAntiaerea)
+	camion.cargar(arenaGranel)
+	camion.hacerCambios()
+	assert.notThat(bumblebee.transformadoEnAuto())
+	assert.that(bateriaAntiaerea.tieneMisiles())
+	assert.equals(arenaGranel.peso(),20)
+	
+}
+
+test "el camion no esta excedido"{
+	camion.cargar(bumblebee)
+	camion.cargar(arenaGranel)
+	arenaGranel.peso(20)
+	assert.notThat(camion.excedidoDeCarga())
+	
+}
+
+test "el camion pesa 1300"{
+camion.cargar(bateriaAntiaerea)
+bateriaAntiaerea.cargarMisiles()
+assert.equals(camion.pesoTotal(),1300)	
+	
+}
+
+
+test "la cosa mas pesada es bumblebee" {
+camion.cargar(bumblebee)
+camion.cargar(knightRider)
+	assert.equals(camion.cosaMasPesada(),bumblebee)
+
+}
+
+test "el camion tiene 3 bultos"{
+	camion.cargar(arenaGranel)
+	camion.cargar(knightRider)
+	camion.cargar(residuosRadioactivos)
+	assert.equals(camion.totalBultos(),3)
+}

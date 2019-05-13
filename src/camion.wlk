@@ -1,10 +1,12 @@
 import cosas.*
 
 object camion {
-	const property cosas = []
-	var property cargaMaxima=2500
+	var  property cosas = []
 	var property peso= 1000
-	
+	method hacerCambios(){
+		
+		cosas.forEach({cosa => cosa.producirCambios()})
+	}
 	method cargar(unaCosa) {
 		cosas.add(unaCosa)
 	}
@@ -22,12 +24,12 @@ object camion {
 		
 	
 	method pesoCarga(){
-		return cosas.sum({cosa=>cosa.Peso()})
+		return cosas.sum({cosa=>cosa.peso()})
 		
 	}
 	
 	method excedidoDeCarga(){
-		return self.pesoTotal()>self.cargaMaxima()
+		return self.pesoTotal()>2500
 	}
 	
 	method objetosPeligrosos(nivel){
@@ -41,31 +43,31 @@ object camion {
 		return cosas.all({cosa=>cosa.nivelPeligrosidad()<nivelMaximoPeligrosidad})
 	}
 	
+	
+	
+	method tieneAlgoQuePesaEntre(min, max){
+		return cosas.any({cosa=>cosa.peso().between(min,max)})
+	}
 	method cosaMasPesada(){
-		return
+		return cosas.max({cosa=>cosa.peso()})
+		}
 		
-	}
-	method pesosCosas(){
-		return cosas.forEach({cosa=>cosa.peso()})
-	}
+		method totalBultos(){
+			return cosas.sum({cosa=>cosa.cantBultos()})
+		}
+		
+		method pesos(){
+			return cosas.map({cosa=>cosa.peso()})
+			
+			}
+			
+		
 
 	
 	
 }
 
-object camioneta{
-	var property peso=900
-	var property cosas=[]
-	var property cargaMaxima= 5
-	
-	method estaExcedido(){
-		return cosas.size()<5
-	}
-	
-	
-	
-	
-}
+
 
 
 
